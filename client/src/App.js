@@ -11,7 +11,6 @@ const App = () => {
   useEffect(() => {
     number !== null && axios.get(`http://localhost/api/items/${number}`)
     .then((res) => {
-      console.log(res)
       setData(res.data)
     })
   }, [number])
