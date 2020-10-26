@@ -17,7 +17,6 @@ services:
     stdin_open: true
     build: ./client
     container_name: client
-    command: yarn start
     depends_on:
       - backend
     volumes:
@@ -25,10 +24,14 @@ services:
     environment:
       - NODE_ENV=development
     restart: on-failure
+    command: yarn start
 
   backend:
     build: ./backend
     container_name: backend
     volumes:
       - ./backend/:/app/
-    restart: on-failure
+    restart: always
+    ports:
+      - 5678:5678
+    command: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--log-level", "debug", "--port", "8000", "--reload"]
