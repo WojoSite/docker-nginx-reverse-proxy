@@ -1,5 +1,5 @@
 # docker-nginx-reverse-proxy
-Boilerplate reverse proxy server using Nginx, React, and FastAPI.
+Boilerplate reverse proxy server using Nginx with React client and FastAPI backend services.
 
 `git clone https://github.com/WojoSite/docker-nginx-reverse-proxy.git`
 
