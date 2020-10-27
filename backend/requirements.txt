@@ -1,3 +1,4 @@
 ptvsd==4.3.2
 fastAPI==0.61.1
 uvicorn==0.12.2
+gunicorn==20.0.4
