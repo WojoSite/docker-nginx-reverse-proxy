@@ -4,34 +4,14 @@ services:
 
   reverse-proxy:
     build: ./reverse_proxy
-    container_name: reverse_proxy
     depends_on:
       - client
       - backend
-    volumes:
-      - ./reverse_proxy/nginx.conf:/etc/nginx/nginx.conf
-    ports:
-      - 80:80
   
   client:
-    stdin_open: true
     build: ./client
-    container_name: client
     depends_on:
       - backend
-    volumes:
-      - ./client:/app
-    environment:
-      - NODE_ENV=development
-    restart: on-failure
-    command: yarn start
 
   backend:
     build: ./backend
-    container_name: backend
-    volumes:
-      - ./backend/:/app/
-    restart: always
-    ports:
-      - 5678:5678
-    command: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--log-level", "debug", "--port", "8000", "--reload"]

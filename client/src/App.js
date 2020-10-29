@@ -31,7 +31,7 @@ const App = () => {
           <option value="180">180</option>
           <option value="235">235</option>
         </select>
-        <p>From <code>/api</code> behind your reverse proxy server:</p>
+        <p>From <code>/api</code> behind your reverse proxy server!</p>
         {data && (
           <p> Data from the server is: {data.item_id}</p>
         )}
